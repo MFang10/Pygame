@@ -383,6 +383,7 @@ def game_loop():
 			shoot2 = False
 			inc_2 = 0
 			#----------------------------- Bullet2 position computation ------------------------
+			# Bug fix required, recompute bullet path
 			#bullet_startu = math.ceil(u)
 			#bullet_startv = math.ceil(v) + math.ceil(player2_height/2)
 
@@ -395,7 +396,7 @@ def game_loop():
 			bullet_startv += math.ceil(v)+player2_height/2
 
 
-		# ---------------------------------- Player1 hit Player2-------------------------------------------------
+		# ---------------------------------- Player1 hits Player2-------------------------------------------------
 
 		if bullet_starty > v and not(bullet_starty + bullet1_radius > v + player2_height) or bullet_starty < v and not (bullet_starty+bullet1_radius < v): # bug fix
 			#print('y crossover')
@@ -417,7 +418,7 @@ def game_loop():
 				
 				hit()
 
-		# ---------------------------------- Player2 hit Player1-------------------------------------------------
+		# ---------------------------------- Player2 hits Player1-------------------------------------------------
 
 		if bullet_startv > y and not(bullet_startv + bullet2_radius > y + player1_height) or bullet_startv < y and not (bullet_startv + bullet2_radius < y): # bug fix
 			#print('v crossover')
